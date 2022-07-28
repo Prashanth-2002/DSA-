@@ -1,30 +1,55 @@
-#include<iostream>
-using namespace std;
-int vertArr[20][20]; //the adjacency matrix initially 0
-int count = 0;
-void displayMatrix(int v) {
-   int i, j;
-   for(i = 0; i < v; i++) {
-      for(j = 0; j < v; j++) {
-         cout << vertArr[i][j] << " ";
-      }
-      cout << endl;
-   }
+class Node {
+int data;
+Node left,right;
+
+Node(int item){
+data= item;
+ left=right=null;
 }
-void add_edge(int u, int v) {       //function to add edge into the matrix
-   vertArr[u][v] = 1;
-   vertArr[v][u] = 1;
 }
-main(int argc, char* argv[]) {
-   int v = 6;    //there are 6 vertices in the graph
-   add_edge(0, 4);
-   add_edge(0, 3);
-   add_edge(1, 2);
-   add_edge(1, 4);
-   add_edge(1, 5);
-   add_edge(2, 3);
-   add_edge(2, 5);
-   add_edge(5, 3);
-   add_edge(5, 4);
-   displayMatrix(v);
+
+class Main{
+
+Node root;
+
+ Node findlca(int a, int b)
+   {
+        return findlca(root, a, b);
+    }
+Node findlca(Node node,int a,int b)
+{
+if(node==null)
+return null;
+
+if(node.data==a || node.data==b)
+return node;
+
+Node left= findlca(node.left, a, b);
+Node right = findlca(node.right, a, b);
+
+if(left!=null && right!=null)
+return node;
+
+return (left!=null) ? left:right;
 }
+
+ public static void main(String args[])
+    {
+        Main tree = new Main();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+        tree.root.right.left = new Node(6);
+        tree.root.right.right = new Node(7);
+        System.out.println("LCA(4, 5) = " +
+                            tree.findlca(4, 5).data);
+        System.out.println("LCA(4, 6) = " +
+                            tree.findlca(4, 6).data);
+        System.out.println("LCA(3, 4) = " +
+                            tree.findlca(3, 4).data);
+        System.out.println("LCA(2, 4) = " +
+                            tree.findlca(2, 4).data);
+    }
+    }
