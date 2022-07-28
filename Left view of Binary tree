@@ -1,0 +1,56 @@
+import java.util.*;
+class Node{
+    int data;
+    Node left,right;
+
+
+Node(int item){
+    data=item;
+    left=right=null;
+}
+}
+
+class Main{
+    Node root;
+    public static void leftview(Node root){
+        if (root==null)
+        return ;
+        Queue<Node>queue=new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty())
+        {
+            int size = queue.size();
+            int i = 0;
+            while(i++<size)
+            {
+          Node  ans=queue.poll();
+            if(i==1){
+            System.out.print(ans.data);
+            }
+            if(ans.left!=null){
+                queue.add(ans.left);
+            }
+            if(ans.right!=null){
+                queue.add(ans.right);
+            }
+            
+            }
+        }
+        
+    }
+    
+    public static void main(String[] args)
+    {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.right = new Node(4);
+        root.right.left = new Node(5);
+        root.right.right = new Node(6);
+        root.right.left.left = new Node(7);
+        root.right.left.right = new Node(8);
+ 
+        leftview(root);
+    }
+    
+}
