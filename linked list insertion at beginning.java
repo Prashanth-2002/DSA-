@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class ll {
+public class Main {
      public Node head = null;  
      public Node tail = null;    
     
