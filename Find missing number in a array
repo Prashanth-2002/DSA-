@@ -13,6 +13,7 @@ public static int findnum(int arr[],int n){
         
     int ogsum = n*(n+1)/2;  
     return(ogsum-sum);
+    }
 
 
 public static void main(String[] args)
