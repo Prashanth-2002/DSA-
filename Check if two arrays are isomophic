@@ -4,7 +4,7 @@ public class Main{
          if(a==null || b==null || a.length()!=b.length())
          return false;
          Map<Character,Character>map= new HashMap<>();
-         for(int i =0;i<str1.length();i++){
+         for(int i =0;i<a.length();i++){
              char k=a.charAt(i);
              char p = b.charAt(i);
              if (map.containsKey(k))
