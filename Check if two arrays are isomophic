@@ -4,7 +4,7 @@ public class Main{
          if(a==null || b==null || a.length()!=b.length())
          return false;
          Map<Character,Character>map= new HashMap<>();
-         for(int i =0;i<a.length();i++){
+         for(int i =0;i<str1.length();i++){
              char k=a.charAt(i);
              char p = b.charAt(i);
              if (map.containsKey(k))
@@ -12,19 +12,20 @@ public class Main{
                  if(map.get(k)!=p)
                  return false;
              }
-             else 
+             else if (map.containsValue(p))
              {
-                 if(map.containsKey(p))
+                 
                  return false;
                  
-                 map.put(k,p);
+                 
              }
+             map.put(k,p);
          }
          return true ;
-     }
+    }
      public static void main(String[] args) {
         String a= "abca";
-		String b = "zbxz";
+	String b = "zbxz";
 		System.out.println("Is "+a +" and "+b +" are Isomorphic? "+ismorphic(a, b));
     }
 }
