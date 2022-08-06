@@ -1,0 +1,32 @@
+import java.util.*;
+class Main {
+ 
+    // Method for zig-zag conversion of array
+    static void zigzag(int arr[],int n){
+      for(int i =0;i<n-1;i++){
+          if(i%2==0){
+            if(arr[i]>arr[i+1])
+            swap(arr,i,i+1);
+      }
+      else{
+       if(arr[i]<arr[i+1])
+            swap(arr,i,i+1);
+      }
+        
+        
+    }
+  }
+  
+  static void swap(int arr[], int i, int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+   public static void main(String[] args)
+    {
+        int arr[] = new int[] { 4, 3, 7, 8, 6, 2, 1 };
+        zigzag(arr, arr.length);
+        System.out.println(Arrays.toString(arr));
+    }
+}
