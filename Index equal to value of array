@@ -1,0 +1,27 @@
+class Solution {
+   static  int index(int arr[], int n) {
+        // code here
+       int ans =0;
+        for(int i=0;i<n;i++){
+            int val =arr[i];
+            if(val==i+1)
+            return val ;
+        }
+        return -1;
+   }
+            
+            
+            
+          
+        
+    
+
+
+public static void main(String args[])
+    {
+        int arr[] = { 1, -1, 0, 3, 10, 11, 30, 50, 100 };
+        int n = arr.length;
+        System.out.println("Fixed Point is "
+                           + index(arr, n));
+    }
+}
