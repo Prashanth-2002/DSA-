@@ -1,0 +1,48 @@
+		class Main
+{
+    static int majority(int a[], int size)
+    {
+      int count =0;
+      int value =0;
+      
+     for(int i=0;i<size;i++){
+         if(a[i]==value){
+         count++;
+         }
+     
+     else {
+         if(count==0){
+         value=a[i];
+         count=1;
+         }
+         else
+         count--;
+         
+     }
+     }
+     
+    int fcount = 0;
+     for(int i=0;i<size;i++){
+         if(a[i]==value)
+         fcount++;
+     }
+     
+     if(fcount<=size/2)
+     return -1;
+     else
+     return value ;
+    
+}
+ public static void main(String[] args)
+    {
+  
+        int a[] = { 1, 2, 2, 2, 3, 5, 2 };
+        int size = a.length;
+  System.out.println(majority(a,size));
+       
+       
+    }
+   
+}
+
+
