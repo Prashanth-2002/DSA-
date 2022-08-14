@@ -1,0 +1,51 @@
+class Main
+{
+  static  void merge(int arr[], int l, int m, int r)
+    {
+         // Your code here
+         int merged[]=new int[r-l+1];
+         int id1= l;
+         int id2 =m+1;
+         int x =0;
+         while(id1<=m && id2<=r ){
+             if(arr[id1]<=arr[id2])
+             merged[x++]=arr[id1++];
+             else
+              merged[x++]=arr[id2++];
+         }
+              
+              while(id1<=m){
+              merged[x++]=arr[id1++];
+              }
+              while(id2<=r){
+              merged[x++]=arr[id2++];
+              }
+              for(int i=0, j=l; i<merged.length; i++,j++)
+               arr[j] = merged [i];
+        
+             
+         }
+    
+   static void mergeSort(int arr[], int l, int r)
+    {
+        //code here
+        if(l>=r)
+        return ;
+    int m = l+(r-l)/2;
+    mergeSort(arr,l,m);
+    mergeSort(arr,m+1,r);
+    merge(arr,l,m,r);
+    
+    
+        
+    }
+    
+      public static void main (String args[]){
+        int arr[]={4,1,3,9,7};
+        int n=arr.length;
+        mergeSort(arr,0,n-1);
+        for (int i=0;i<n ;i++ ){
+            System.out.println(arr[i]+" ");
+        }
+        }
+        }
